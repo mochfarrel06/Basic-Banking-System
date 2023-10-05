@@ -61,6 +61,7 @@ class AccountUser extends BankAccount {
 
 // Objek
 let money = new AccountUser(0);
+money.displaySaldo();
 
 // Function add deposit
 const depositBank = () => {
