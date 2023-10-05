@@ -58,3 +58,16 @@ class AccountUser extends BankAccount {
     super.withDraw(amount);
   }
 }
+
+// Objek
+let money = new AccountUser(0);
+
+// Function add deposit
+const depositBank = () => {
+  money.deposit();
+};
+
+// Funtion t
+const withDrawBank = () => {
+  money.withDraw();
+};
