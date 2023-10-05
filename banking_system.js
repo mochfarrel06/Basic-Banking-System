@@ -36,4 +36,8 @@ class BankAccount {
       }
     }
   }
+
+  displaySaldo() {
+    document.getElementById('view-saldo').innerHTML = this.saldo;
+  }
 }
