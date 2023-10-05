@@ -41,3 +41,20 @@ class BankAccount {
     document.getElementById('view-saldo').innerHTML = this.saldo;
   }
 }
+
+// class inheritance
+class AccountUser extends BankAccount {
+  constructor(saldo) {
+    super(saldo);
+  }
+
+  // Overriding
+  deposit(amount) {
+    super.deposit(amount);
+  }
+
+  // Overriding
+  withDraw(amount) {
+    super.withDraw(amount);
+  }
+}
