@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;500;700;800&family=Merriweather:wght@400;700;900&family=Roboto+Mono:wght@600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1efef;
+  font-family: 'Martian Mono', monospace;
+}
+
+.header {
+  background-color: #191717;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.header__title {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.main {
+  width: 100%;
+  padding: 20px;
+  height: 50vh;
+}
+
+.name-title {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #191717;
+  margin-bottom: 2rem;
+}
+
+.button-saldo {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #191717;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-saldo:hover {
+  background-color: #191717;
+  color: #fff;
+}
