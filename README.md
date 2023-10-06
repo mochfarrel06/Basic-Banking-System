@@ -63,7 +63,7 @@ class BankAccount
 
     talk()
         Returns displayNumber
-    End talk
+    end talk
 End BankAccount
 
 class AccountUser inherits BankAccount
