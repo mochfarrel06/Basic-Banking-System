@@ -10,7 +10,6 @@ class BankAccount {
       setTimeout(() => {
         if (isNaN(amount) || amount <= 0) {
           alert('Masukkan tidak valid');
-          return;
         } else {
           this.saldo += amount;
           this.displaySaldo();
