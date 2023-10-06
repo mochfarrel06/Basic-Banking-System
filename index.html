@@ -12,12 +12,16 @@
     </div>
 
     <div class="main">
-      <h3 class="name-title">
-        Saldo anda:
-        <span class="name-title" id="view-saldo"></span>
-      </h3>
-      <button class="button-saldo" onclick="depositBank()">Deposit</button>
-      <button class="button-saldo" onclick="withDrawBank()">WithDraw</button>
+      <div class="container-content">
+        <div class="card-saldo">
+          <h3 class="name-title">Saldo anda:</h3>
+          <p class="name-saldo" id="view-saldo"></p>
+        </div>
+        <div class="btn-container">
+          <button class="button-saldo" onclick="depositBank()">Deposit</button>
+          <button class="button-saldo" onclick="withDrawBank()">WithDraw</button>
+        </div>
+      </div>
     </div>
 
     <script src="banking_system.js"></script>

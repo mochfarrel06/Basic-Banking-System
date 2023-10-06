@@ -1,8 +1,10 @@
 class BankAccount {
-  constructor(saldo) {
+  constructor(saldo, accountNumber) {
+    this.accountNumber = accountNumber;
     this.saldo = saldo;
   }
 
+  // This is public instance method
   deposit(amount) {
     amount = parseFloat(prompt('masukkan saldo '));
     if (isNaN(amount) || amount <= 0) {
@@ -14,6 +16,7 @@ class BankAccount {
         this.displaySaldo();
         alert(`Saldo anda adalah ${this.saldo}`);
       }, 3000);
+      return;
     }
   }
 
@@ -40,12 +43,21 @@ class BankAccount {
   displaySaldo() {
     document.getElementById('view-saldo').innerHTML = this.saldo;
   }
+
+  // Private
+  #displayNumber = () => {
+    console.log(`Account Number: ${this.accountNumber}`);
+  };
+
+  talk() {
+    console.log(this.#displayNumber());
+  }
 }
 
 // class inheritance
 class AccountUser extends BankAccount {
-  constructor(saldo) {
-    super(saldo);
+  constructor(saldo, accountNumber) {
+    super(saldo, accountNumber);
   }
 
   // Overriding
@@ -60,8 +72,9 @@ class AccountUser extends BankAccount {
 }
 
 // Objek
-let money = new AccountUser(0);
+let money = new AccountUser(0, 'A-120');
 money.displaySaldo();
+money.talk();
 
 // Function add deposit
 const depositBank = () => {
