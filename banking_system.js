@@ -4,40 +4,46 @@ class BankAccount {
     this.saldo = saldo;
   }
 
-  // This is public instance method
   deposit(amount) {
-    amount = parseFloat(prompt('masukkan saldo '));
-    if (isNaN(amount) || amount <= 0) {
-      alert('masukkan angka yang valid');
-      return;
-    } else {
-      this.saldo += amount;
+    return new Promise((resolve) => {
+      amount = parseFloat(prompt('masukkan saldo '));
       setTimeout(() => {
-        this.displaySaldo();
-        alert(`Saldo anda adalah ${this.saldo}`);
+        if (isNaN(amount) || amount <= 0) {
+          alert('Masukkan tidak valid');
+          return;
+        } else {
+          this.saldo += amount;
+          this.displaySaldo();
+          alert(`Saldo terbaru Rp.${this.saldo}`);
+          resolve();
+        }
       }, 3000);
-      return;
-    }
+    });
   }
 
   withDraw(amount) {
-    if (this.saldo <= 0) {
-      alert('Saldo anda belum bisa ditarik');
-    } else {
-      amount = parseFloat(prompt('masukkan saldo yang ingin ditarik '));
-      if (isNaN(amount) || amount <= 0) {
-        alert('Masukkan angka yang valid');
-      } else if (amount >= this.saldo) {
-        alert('Saldo anda tidak bisa ditarik');
+    return new Promise((resolve) => {
+      if (this.saldo <= 0) {
+        alert('Saldo anda belum bisa ditarik');
       } else {
-        this.saldo -= amount;
+        amount = parseFloat(prompt('masukkan saldo yang ingin ditarik '));
         setTimeout(() => {
-          this.displaySaldo();
-          alert(`Saldo anda adalah ${this.saldo}`);
+          if (isNaN(amount) || amount <= 0) {
+            alert('Masukkan angka yang valid');
+          } else if (amount >= this.saldo) {
+            alert('Saldo anda tidak bisa ditarik');
+          } else {
+            this.saldo -= amount;
+            setTimeout(() => {
+              this.displaySaldo();
+              alert(`Saldo terbaru Rp.${this.saldo}`);
+              resolve();
+            }, 3000);
+            return;
+          }
         }, 3000);
-        return;
       }
-    }
+    });
   }
 
   displaySaldo() {
@@ -74,14 +80,13 @@ class AccountUser extends BankAccount {
 // Objek
 let money = new AccountUser(0, 'A-120');
 money.displaySaldo();
-money.talk();
 
-// Function add deposit
+// Function depositBank
 const depositBank = () => {
   money.deposit();
 };
 
-// Funtion t
+// Funtion with draw
 const withDrawBank = () => {
   money.withDraw();
 };
