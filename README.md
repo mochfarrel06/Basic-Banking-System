@@ -87,7 +87,8 @@ depositBank = Create a function to be displayed in the browser
 witthDrawBank = Create a function to be displayed in the browser
 
 
-# Chapter 3
+
+# Challenge Chapter 3
 
 ## create_and_insert
 Backend JavaScript Binar Academy
@@ -131,8 +132,34 @@ Backend JavaScript Binar Academy
 
 #### Tahap 3 - Menentukan hubungan (relasi) antar entitas
 - Setelah menentukan atribut diatas, maka langkah selanjutnya adalah menentukan relasi atau hubungan yang bakal terjadi antar entitas:
-    - Nasabah (One) memiliki Akun (Many), yaitu satu nasabah dapat memiliki beberapa akun
-    - Akun (One) memiliki Transaksi (Many), yaitu satu akun dapat memiliki banyak transaksi
+    - Satu Nasabah dapat memiliki beberapa Akun, tetapi setiap Akun hanya dimiliki oleh satu Nasabah. (One to Many)
+    - Satu Akun dapat memiliki banyak Transaksi, tetapi setiap Transaksi hanya terkait dengan satu Akun. (One to Many) 
 
 #### Tahap 4 - Membuat Model ERD
-- 
+- Setelah kita sudah menentukan relasi dari tiap entitas maka kita bisa merancang ERDnya
+- Dalam tahap ini, kita tinggal menggabungkan seluruh himpunan dan relasi dari tahap ketiga tadi dan membuat ilustrasinya.
+- Dalam pembuatan ERD saya menggunakan dbdiagram.io
+![Alt text](Challenge-Chapter-3/create_and_insert.png)
+
+### Membuat SQL untuk mendefinisikan table 
+
+#### Tahap 1 => Membuat Table Nasabah
+- Kita buat table dengan perintah 'CREATE TABLE Nasabah'
+- Lalu kita isi column pertama dengan 'NasabahID' yang merupakan ID dan diberikan Primary Key agar tiap baris dalam table ini bersifat unik, diberikan tipe data integer yang berupa angka
+- Lalu kita isi column kedua dengan 'FirstName' yang merupakan nama depan nasabah dengan tipe data varchar yang berupa huruf dan angka.
+- Lalu kita isi column ketiga dengan 'LastName' yang merupakan nama belakang nasabah dengan tipe data varchar yang berupa huruf dan angka.
+- Lalu kita isi column keempat dengan 'Address' yang merupakan alaamt nasabah dengan tipe data varchar yang berupa huruf dan angka.
+- Lalu kita isi column Kelima dengan 'Phone' yang merupakan nomor telephone nasabah dengan tipe data varchar yang berupa huruf dan angka.
+
+#### Tahap 2 => Membuat Table Akun
+- Kita buat table dengan perintah 'CREATE TABLE Akun'
+- Lalu kita isi column pertama dengan 'AkunID' yang merupakan ID dan diberikan Primary Key agar tiap baris dalam table ini bersifat unik, diberikan tipe data integer yang berupa angka
+- Lalu kita isi column kedua dengan 'Balance' yang merupakan jumlah uang dengan tipe data money.
+- Lalu kita isi column ketiga dengan 'NasabahID' yang merupakan NasabahID dari table Nasabah pada table Nasabah dan Akun ini terdapat relasi One to Many jadi Satu Nasabah dapat memiliki beberapa Akun, tetapi setiap Akun hanya dimiliki oleh satu Nasabah. Pada column ini bertipe data integer.
+
+#### Tahap 3 => Membuat Table Transaksi
+- Kita buat table dengan perintah 'CREATE TABLE Transaksi'
+- Lalu kita isi column pertama dengan 'TransactionID' yang merupakan ID dan diberikan Primary Key agar tiap baris dalam table ini bersifat unik, diberikan tipe data integer yang berupa angka
+- Lalu kita isi column kedua dengan 'TransactionDate' yang merupakan tanggal saat kita melakukan transaksi dan diberikan tipe data date.
+- Lalu kita isi colum ketiga dengan 'TotalAmount' yang merupakan total biaya saat transaksi dan diberikan tipe data money.
+- Lalu kita isi column keempat dengan 'AkunID' yang merupakan AkunID dari table Akun pada table Nasabah dan Akun ini terdapat relasi One to Many jadi Satu Akun dapat memiliki banyak Transaksi, tetapi setiap Transaksi hanya terkait dengan satu Akun.
